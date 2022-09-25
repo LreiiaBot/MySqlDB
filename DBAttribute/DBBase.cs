@@ -73,6 +73,12 @@ namespace DBAttribute
             {
                 if (propsZuSpalten.ContainsKey(property.Name))
                 {
+                    if (property.PropertyType.IsEnum)
+                    {
+                        string stringValue = reader[propsZuSpalten[property.Name]].ToString();
+                        property.SetValue(element, Enum.Parse(property.PropertyType, stringValue));
+                        continue;
+                    }
                     // braucht man eine Conversion?
                     //property.SetValue(element, reader[propsZuSpalten[property.Name]]);
                     property.SetValue(element, Convert.ChangeType(reader[propsZuSpalten[property.Name]], property.PropertyType));

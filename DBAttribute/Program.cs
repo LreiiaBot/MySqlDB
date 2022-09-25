@@ -10,6 +10,8 @@ namespace DBAttribute
     {
         static void Main(string[] args)
         {
+            //Int16 i = 2
+            //var x = Convert.ChangeType(ZStatus.Grauzone, typeof(ZStatus));
             DBBase<Zigarette> db = new DBBase<Zigarette>();
             try
             {
